@@ -14,7 +14,7 @@ RUN apt-get update \
         zip \
         unzip \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install -j$(nproc) pdo_pgsql zip intl opcache gd \
+    && docker-php-ext-install -j$(nproc) pdo_pgsql zip intl opcache gd pcntl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 

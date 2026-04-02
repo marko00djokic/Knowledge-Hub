@@ -146,7 +146,7 @@ class QuestionController extends Controller
         $userId = $request->user()?->id;
         $answerRelations = [
             'author:id,name,reputation',
-            'attachments:id,attachable_id,attachable_type,url,original_name,mime_type,size_bytes',
+            'attachments:id,attachable_id,attachable_type,disk,path,original_name,mime_type,size_bytes',
             'comments' => function ($commentQuery) {
                 $commentQuery
                     ->select(['id', 'commentable_id', 'commentable_type', 'user_id', 'body_markdown', 'body_html', 'created_at'])
@@ -176,7 +176,7 @@ class QuestionController extends Controller
                 'author:id,name,reputation',
                 'category:id,name,slug',
                 'tags:id,name,slug',
-                'attachments:id,attachable_id,attachable_type,url,original_name,mime_type,size_bytes',
+                'attachments:id,attachable_id,attachable_type,disk,path,original_name,mime_type,size_bytes',
                 'comments' => function ($commentQuery) {
                     $commentQuery
                         ->select(['id', 'commentable_id', 'commentable_type', 'user_id', 'body_markdown', 'body_html', 'created_at'])

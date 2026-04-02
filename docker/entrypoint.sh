@@ -7,4 +7,6 @@ if [ "${APP_ENV:-local}" != "local" ] && [ -f /var/www/html/artisan ]; then
     php /var/www/html/artisan app:clear-vite-hot --ansi || true
 fi
 
+chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache 2>/dev/null || true
+
 exec "$@"
